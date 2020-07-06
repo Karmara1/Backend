@@ -12,11 +12,12 @@ Put= Actualizar / Editar
 */ 
 
 router.get('/brindar', PersonaController.datosestudiante);
-router.post('/save', PersonaController.save);
+router.put('/save', PersonaController.save);
 router.get('/list/:parametro?', PersonaController.get_estudiantes);
 router.get('/buscar/:id', PersonaController.get_estudiantebyid);
 router.post('/edit/:id', PersonaController.update);
 router.delete('/delete/:cosa', PersonaController.delete);
 router.get('/find/:parametro', PersonaController.search);
 router.post('/upload/:id', md_upload,PersonaController.upload);
+router.get('/imagen/:imagen',PersonaController.obtener_imagen);
 module.exports=router;

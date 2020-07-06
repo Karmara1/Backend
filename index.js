@@ -1,12 +1,16 @@
 'use strict'
-var mongoose=require('mongoose'); //Conectar Node con MongoDB
+var mongoose=require('mongoose');
 var app=require('./app');
 var port=3900;
+mongoose.connect('mongodb://localhost:27017/estudiante',{userNewUrlParser:true})/*El primer campo la dirección 
+del servidor y el segundo son opciones*/
+    .then(()=>{ // se hace con proramación funcional para darle más orden
+        console.log('En la buena parcero conecto');
 
-mongoose.connect('mongodb://localhost:27017/estudiante',{useNewUrlParser:true})//Primer campo, direccion del servidor, segundo campo opcional
-.then(()=>{
-    console.log('Conectados');
-    app.listen(port,()=>{
-        console.log('servidor corriendo en http://localhost:'+port);
+
+        //Crear el servidor y ponerme a escuchar peticiones http
+       
+        app.listen(port,()=>{
+            console.log('Servidor corriendo en http://localhost:'+port);
+        })
     })
-})
